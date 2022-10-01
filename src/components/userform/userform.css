@@ -1,0 +1,26 @@
+.main {
+  position: relative;
+}
+
+.card {
+  margin: auto;
+  width: 30%;
+}
+
+.toast-message {
+  background-color: #232023;
+}
+
+.ant-card-actions {
+  background-color: #232023;
+}
+
+.ant-modal-content div {
+  background-color: #232023;
+  color: white;
+}
+
+.ant-modal-content h1,
+h2 {
+  color: white;
+}
