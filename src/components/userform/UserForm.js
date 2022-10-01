@@ -1,6 +1,6 @@
 import './userform.css';
 import { useState } from 'react';
-import { Card, Button, Divider, Row, Col, Modal } from 'antd';
+import { Card, Button, Divider, Row, Col, Modal, Popconfirm } from 'antd';
 import { Form, Input, SubmitButton } from 'formik-antd'
 import { Formik, ErrorMessage } from 'formik'
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
@@ -68,6 +68,7 @@ const UserForm = () => {
     });
     setUsers(allUsers);
   }
+
   return (
     <div className=".main">
       <div className='card'>
@@ -104,11 +105,20 @@ const UserForm = () => {
               hoverable
               bordered={false}
               style={{ width: 300, marginBottom: 25, backgroundColor: '#232023', cursor: 'pointer' }}
-              onClick={() => displayDetails(ele, idx)}
-              actions={[<Button style={{ backgroundColor: 'red' }} onClick={() => deleteUser(idx)}>Delete</Button>]}
+              actions={[
+                <Popconfirm
+                  title="Are you sure to delete this user?"
+                  onConfirm={() => deleteUser(idx)}
+                  placement='bottom'
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <Button style={{ backgroundColor: 'red', width: '100%' }}>Delete</Button>
+                </Popconfirm>
+              ]}
             >
-              <h2><UserOutlined /> {ele.name}</h2>
-              <h2><MailOutlined /> {ele.email}</h2>
+              <h2 onClick={() => displayDetails(ele, idx)}><UserOutlined /> {ele.name}</h2>
+              <h2 onClick={() => displayDetails(ele, idx)}><MailOutlined /> {ele.email}</h2>
             </Card>
           </Col>
         })
