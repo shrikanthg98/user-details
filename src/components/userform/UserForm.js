@@ -26,7 +26,7 @@ const userFormSchema = Yup.object().shape({
   phoneNum: Yup.number()
     .positive()
     .min(10, 'Minimum 10 digits required')
-    .required("*Requried"),
+    .required('*Requried'),
   email: Yup.string().email('Invalid email').required('*Required'),
   address: Yup.string()
     .min(2, 'Too Short!')
@@ -70,9 +70,10 @@ const UserForm = () => {
   }
 
   return (
-    <div className=".main">
+    <div>
+      <h1 className='heading'>Mangage User Details</h1>
       <div className='card'>
-        <Card title="User Form" bordered={false} style={{ width: '100%', backgroundColor: '#232023', marginTop: 80 }}>
+        <Card title='User Form' bordered={false} style={{ width: '100%', backgroundColor: '#232023', marginTop: 80 }}>
           <Formik
             initialValues={initialUserValues}
             validationSchema={userFormSchema}
@@ -107,11 +108,11 @@ const UserForm = () => {
               style={{ width: 300, marginBottom: 25, backgroundColor: '#232023', cursor: 'pointer' }}
               actions={[
                 <Popconfirm
-                  title="Are you sure to delete this user?"
+                  title='Are you sure to delete this user?'
                   onConfirm={() => deleteUser(idx)}
-                  placement='bottom'
-                  okText="Yes"
-                  cancelText="No"
+                  placement='top'
+                  okText='Yes'
+                  cancelText='No'
                 >
                   <Button style={{ backgroundColor: 'red', width: '100%' }}>Delete</Button>
                 </Popconfirm>
@@ -125,7 +126,7 @@ const UserForm = () => {
       }</Row>
       <Row>
         <Modal
-          title="User Info"
+          title='User Info'
           open={isModalOpen}
           onOk={handleCancel}
           closable={false}
