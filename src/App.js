@@ -4,14 +4,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './components/navbar/NavBar';
-import UserForm from './components/userform/UserForm';
+import HomePage from './components/homepage/HomePage';
 
 function App() {
   return (
     <div className="main">
       <Router>
         <NavBar />
-        <UserForm />
+        <HomePage />
       </Router>
       <ToastContainer />
     </div>
